@@ -1,5 +1,3 @@
-
-
 ro.boot.flash.locked
 ro.boot.vbmeta.device_state
 ro.boot.verifiedbootstate

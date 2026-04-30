@@ -3,7 +3,7 @@
 
 dir=$(pwd)
 sdkLevel=$(cat $dir/bin/ddevice/sdkLevel.txt)
-patch="python3 $dir/bin/package/FrameworkPatcher/KouseiPatcher/toolbox.py"
+patch="python3 $dir/bin/package/KouseiPatcher/toolbox.py"
 JARDIR="$dir/jar_temp"
 
 if [[ ! -d $dir/jar_temp ]]; then
@@ -160,7 +160,7 @@ Patch_Framework () {
     mvsml "Instrumentation.smali" "$new_dex_folder" >/dev/null 2>&1
     mvsml "AndroidKeyStoreKeyPairGeneratorSpi.smali" "$new_dex_folder" >/dev/null 2>&1
     mvsml "ApplicationPackageManager.smali" "$new_dex_folder" >/dev/null 2>&1
-    cp -rf $dir/bin/package/FrameworkPatcher/KouseiPatcher/smali/* $new_dex_folder
+    cp -rf $dir/bin/package/KouseiPatcher/smali/* $new_dex_folder
     jar_util a 'framework.jar' fw 0 10
 
 }

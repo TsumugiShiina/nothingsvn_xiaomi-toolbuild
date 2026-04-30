@@ -3,6 +3,7 @@
 
 work_dir=$(pwd)
 magiskboot="$work_dir/bin/magiskboot"
+prop="$work_dir/bin/package/KouseiPatcher/prop"
 
 if [ -f $work_dir/build/baserom/images/vendor_boot.img ]; then 
 
@@ -35,4 +36,12 @@ if [ -f $work_dir/build/baserom/images/vendor_boot.img ]; then
     rm -rf $work_dir/temp_boot
   fi
 
+fi
+
+cat $prop/build.prop >> $work_dir/build/baserom/images/system/system/build.prop
+if [[ $sdkLevel == "32" || $sdkLevel == "31" ]];then
+cat $prop/cust.prop >> $work_dir/build/baserom/images/system/system/etc/cust/cust_prop_white_keys_list
+else
+cat $prop/cust.prop >> $work_dir/build/baserom/images/system_ext/etc/cust_prop_white_keys_list
+patch "Done"
 fi
