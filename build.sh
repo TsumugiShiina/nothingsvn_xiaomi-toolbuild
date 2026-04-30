@@ -1,8 +1,5 @@
 baserom="$1"
 work_dir=$(pwd)
-tools_dir=${work_dir}/bin/$(uname)/$(uname -m)export PATH=$(pwd)/bin/$(uname)/$(uname -m)/:$PATH
-chmod 777 ${work_dir}/bin/*
-chmod 777 ${work_dir}/bin/Linux/x86_64/*
 # Import functions
 source $work_dir/functions.sh
 if [[ $(git branch --show-current) == "beta" ]]; then
